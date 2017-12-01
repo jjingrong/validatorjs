@@ -42,7 +42,8 @@ var container = {
    */
   _load: function(lang) {
     if (!this.messages[lang]) {
-      var rawMessages = require('./lang/' + lang);
+      //HACK: var rawMessages = require('./lang/' + lang);
+      var rawMessages = require('./lang/');
       this._set(lang, rawMessages);
     }
   },
