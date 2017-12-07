@@ -2,8 +2,6 @@ var Messages = require('./messages');
 
 require('./lang/en');
 
-var require_method = require;
-
 var container = {
 
   messages: {},
@@ -44,12 +42,8 @@ var container = {
    */
   _load: function(lang) {
     if (!this.messages[lang]) {
-      try {
-        // var rawMessages = require_method('./lang/' + lang);
-        // HACK: Just taking en for now, as the line above causes bug and new version (.16) causes crashes on RN
-        var rawMessages = require_method('./lang/en');
-        this._set(lang, rawMessages);
-      } catch (e) {}
+      var rawMessages = require('./lang/en');
+      this._set(lang, rawMessages);
     }
   },
 
